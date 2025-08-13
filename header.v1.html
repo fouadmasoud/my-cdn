@@ -1,0 +1,295 @@
+<!-- header.v1.html -->
+<header class="MainNavigationComponent2-module--isPortal">
+  <nav id="MainNav" class="Header-module--header">
+    <div class="Header-module--topNav">
+      <div class="Header-module--home">
+        <div class="Header-module--logoWrapper">
+          <a
+            id="logo"
+            aria-label="Lucid Home"
+            class="Header-module--logoLinkContanier"
+            href="#"
+          >
+            <!-- Your logo img goes here -->
+            <img class="Header-module--logo" alt="Lucid" />
+          </a>
+          <a
+            id="bear"
+            aria-label="company information"
+            class="Header-module--bearLinkContanier"
+            href="#"
+          >
+            <!-- Optional small icon -->
+            <img class="Header-module--bear" alt="Lucid Bear" />
+          </a>
+        </div>
+      </div>
+
+      <ul class="Header-module--list Header-module--rightNavControls">
+        <li class="Header-module--globe">
+          <button
+            type="button"
+            onclick="toggleDrawer('localeSelectDrawer')"
+            class="Button-module--button"
+            aria-label="Change locale"
+          >
+            <!-- globe icon -->
+          </button>
+        </li>
+
+        <li class="Header-module--hamburgerItem">
+          <button
+            id="first-focusable-element"
+            type="button"
+            class="Header-module--button"
+            onclick="openMenu()"
+          >
+            <span>Menu</span>
+            <!-- hamburger icon -->
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Hover/Top drawers (desktop) -->
+    <div
+      class="Drawer-module--drawerContainer"
+      aria-hidden="false"
+      onmouseleave="closeDrawers(this)"
+    >
+      <!-- EXPERIENCE drawer -->
+      <div
+        id="experienceDrawer"
+        style="transform: translateY(-150%)"
+        class="Drawer-module--drawerContent Drawer-module--slideTop"
+      >
+        <div class="Header-module--tabContent grid-module--container">
+          <div class="grid-module--row">
+            <!-- left list populated by populateHeader() -->
+            <ul
+              class="Header-module--leftNav grid-module--offset_md_1 grid-module--col_md_3"
+            ></ul>
+            <!-- right tiles + links; we keep anchors with specific IDs for text & href updates -->
+            <ul class="Header-module--rightNav grid-module--col_md_6">
+              <li
+                class="Header-module--imageLinkContainer grid-module--col_md_4"
+              >
+                <a class="Button-module--button ImageLink-module--imageTextLink"
+                  ><span class="ImageLink-module--imageContainer"></span
+                ></a>
+                <a
+                  id="about"
+                  class="Button-module--button Header-module--imageText Button-module--buttonUnderline"
+                  >About Us</a
+                >
+              </li>
+              <li
+                class="Header-module--imageLinkContainer grid-module--col_md_4"
+              >
+                <a class="Button-module--button ImageLink-module--imageTextLink"
+                  ><span class="ImageLink-module--imageContainer"></span
+                ></a>
+                <a
+                  id="events"
+                  class="Button-module--button Header-module--imageText Button-module--buttonUnderline"
+                  >Events</a
+                >
+              </li>
+              <li
+                class="Header-module--imageLinkContainer grid-module--col_md_4"
+              >
+                <a class="Button-module--button ImageLink-module--imageTextLink"
+                  ><span class="ImageLink-module--imageContainer"></span
+                ></a>
+                <a
+                  id="stories"
+                  class="Button-module--button Header-module--imageText Button-module--buttonUnderline"
+                  >Stories</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOP drawer -->
+      <div
+        id="shopDrawer"
+        style="transform: translateY(-150%)"
+        class="Drawer-module--drawerContent Drawer-module--slideTop"
+      >
+        <div class="Header-module--tabContent grid-module--container">
+          <div class="grid-module--row">
+            <!-- left list populated by populateHeader() -->
+            <ul
+              class="Header-module--leftNav grid-module--offset_md_1 grid-module--col_md_3"
+            ></ul>
+            <!-- right tiles + links -->
+            <ul class="Header-module--rightNav grid-module--col_md_6">
+              <li
+                class="Header-module--imageLinkContainer grid-module--col_md_4"
+              >
+                <a class="Button-module--button ImageLink-module--imageTextLink"
+                  ><span class="ImageLink-module--imageContainer"></span
+                ></a>
+                <a
+                  id="locations"
+                  class="Button-module--button Header-module--imageText Button-module--buttonUnderline"
+                  >Locations</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOCALE selector drawer -->
+      <div
+        id="localeSelectDrawer"
+        style="transform: translateY(-150%)"
+        class="Drawer-module--drawerContent Drawer-module--slideTop"
+      >
+        <div class="Header-module--tabContent grid-module--container">
+          <div class="grid-module--row">
+            <div
+              class="Header-module--languageContent grid-module--offset_md_2 grid-module--col_md_7"
+            >
+              <!-- Buttons will call handleChangeLng('en-us' | 'fr-ca' | ...) from your JS -->
+              <div class="LanguageLink-module--languageContainer">
+                <p class="LanguageLink-module--regionName">North America</p>
+                <div>
+                  <p class="LanguageLink-module--countryName">United States</p>
+                  <div class="LanguageLink-module--languageList">
+                    <button
+                      type="button"
+                      onclick="handleChangeLng('en-us')"
+                      class="Button-module--button Button-module--buttonUnderline"
+                    >
+                      English
+                    </button>
+                  </div>
+                </div>
+                <!-- add more locales if you want them clickable -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile side menu container -->
+  <div class="Side-module--container">
+    <!-- Mobile main menu -->
+    <div
+      id="mobile-menu-wrapper"
+      class="Drawer-module--drawerContainer"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div
+        id="mobile-menu-id"
+        class="Drawer-module--drawerContent Drawer-module--slideRight"
+        aria-labelledby="drawer-label"
+      >
+        <nav class="Side-module--content">
+          <div class="Side-module--btnMenu">
+            <button
+              class="Side-module--imgButton"
+              onclick="openGlobe()"
+              data-testid="sideNav-globe-icon"
+            >
+              <!-- globe icon -->
+            </button>
+            <button
+              class="Side-module--imgButton"
+              onclick="closeMenu()"
+              aria-label="Close menu"
+            >
+              <!-- close icon -->
+            </button>
+          </div>
+
+          <!-- Top links whose hrefs are set by populateSide() -->
+          <div class="Side-module--smallMenu">
+            <a id="airSide" class="Side-module--link">Air</a>
+            <a id="gravitySide" class="Side-module--link">Gravity</a>
+          </div>
+
+          <!-- Expandable sections populated by populateSide() -->
+          <div class="Side-module--expandableMenu">
+            <button
+              onclick="toggleSubmenu(this)"
+              aria-label="Experience"
+              class="Side-module--link Side-module--yellowLink"
+            >
+              <span id="experienceSideLabel">Experience</span>
+              <span class="Side-module--icon"
+                ><span class="Side-module--line"></span
+                ><span class="Side-module--line"></span
+              ></span>
+            </button>
+            <div
+              id="experienceSideMenu"
+              class="Side-module--expandableList"
+            ></div>
+          </div>
+
+          <div class="Side-module--expandableMenu">
+            <button
+              onclick="toggleSubmenu(this)"
+              aria-label="Shop"
+              class="Side-module--link Side-module--yellowLink"
+            >
+              <span id="shopSideLabel">Shop</span>
+              <span class="Side-module--icon"
+                ><span class="Side-module--line"></span
+                ><span class="Side-module--line"></span
+              ></span>
+            </button>
+            <div id="shopSideMenu" class="Side-module--expandableList"></div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile locale sheet -->
+    <div
+      id="mobile-globe-wrapper"
+      class="Drawer-module--drawerContainer"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div
+        id="mobile-globe-id"
+        class="Drawer-module--drawerContent Drawer-module--slideRight"
+        aria-labelledby="drawer-label"
+      >
+        <nav class="Side-module--content">
+          <div class="Side-module--btnGlobeMenu">
+            <button
+              class="Side-module--imgButton"
+              onclick="closeGlobeAndMenu()"
+            >
+              <!-- back icon -->
+            </button>
+          </div>
+          <div class="LanguageLink-module--languageContainer">
+            <p class="LanguageLink-module--regionName">North America</p>
+            <div>
+              <p class="LanguageLink-module--countryName">United States</p>
+              <div class="LanguageLink-module--languageList">
+                <a
+                  class="LanguageSwitcher-module--expandableLink"
+                  onclick="handleChangeLng('en-us')"
+                  >English</a
+                >
+              </div>
+            </div>
+            <!-- add more locales if desired -->
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
