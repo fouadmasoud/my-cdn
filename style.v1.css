@@ -1,0 +1,71 @@
+/* demo.css – minimal styles for the simple header & footer */
+:root{
+  --bg-dark: #000;
+  --text-on-dark: #fff;
+  --accent-gold: #d7be96;
+  --bg-footer: #eaeaea;
+  --text: #1b1b1b;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--text);}
+
+.container{max-width:1200px; margin:0 auto; padding:0 24px;}
+
+/* ===== Header ===== */
+.demo-header{background:var(--bg-dark); color:var(--text-on-dark); position:sticky; top:0; z-index:100}
+.demo-header .container{display:flex; align-items:center; gap:16px; height:64px;}
+.brand{display:flex; align-items:center; color:var(--text-on-dark); text-decoration:none}
+.brand-mark{height:20px; width:120px;}
+.brand-text{font: 700 12px/1 ui-sans-serif,system-ui; letter-spacing:.45em; fill: currentColor;}
+
+.nav-toggle{display:none; width:40px; height:40px; background:transparent; border:1px solid rgba(255,255,255,.25); border-radius:8px; color:inherit}
+.nav-toggle span{display:block; height:2px; background:currentColor; margin:6px 8px}
+
+.site-nav{display:flex; align-items:center; gap:24px; justify-content:space-between; width:100%}
+.nav-list{display:flex; gap:48px; margin:0; padding:0; list-style:none}
+.nav-list a{color:var(--text-on-dark); text-decoration:none; font-weight:500}
+.nav-list a:hover{opacity:.85}
+
+.nav-cta-group{display:flex; align-items:center; gap:16px; margin-left:auto}
+.btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 20px; border-radius:8px; border:1px solid transparent; text-decoration:none; font-weight:600; letter-spacing:.12em}
+.btn-gold{background:var(--accent-gold); color:#000}
+.icon-btn{display:inline-flex; align-items:center; gap:8px; height:40px; width:40px; border:1px solid rgba(255,255,255,.4); border-radius:999px; background:transparent; color:var(--text-on-dark)}
+.icon-btn .lang{font-size:12px; margin-left:4px}
+
+/* ===== Mobile ===== */
+@media (max-width: 900px){
+  .nav-toggle{display:inline-flex; align-items:center; justify-content:center}
+  .site-nav{position:fixed; inset:64px 0 0 0; background:var(--bg-dark); flex-direction:column; align-items:flex-start; gap:24px; padding:24px; transform:translateY(-120%); transition:transform .3s ease; }
+  .site-nav.open{transform:translateY(0)}
+  .nav-list{flex-direction:column; gap:16px}
+  .nav-cta-group{margin-left:0}
+}
+
+/* ===== Main placeholder ===== */
+.demo-main{padding:40px 0 80px}
+.placeholder{border:1px dashed #ccc; border-radius:12px; padding:24px; text-align:center}
+
+/* ===== Footer ===== */
+.demo-footer{background:var(--bg-footer); padding:48px 0; margin-top:40px;}
+.footer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:40px}
+.footer-grid h3{margin:0 0 12px 0; font-size:20px}
+.footer-grid ul{list-style:none; margin:0; padding:0}
+.footer-grid a{color:inherit; text-decoration:none; line-height:1.9}
+.footer-grid a:hover{text-decoration:underline; text-underline-offset:3px}
+
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .footer-grid{grid-template-columns:1fr}
+}
+
+.social{display:flex; gap:16px; list-style:none; margin:32px 0 24px; padding:0}
+.social-btn{display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:999px; border:1px solid #333; text-decoration:none; color:inherit; font-weight:600}
+
+.footer-bottom{display:flex; gap:24px; align-items:center; justify-content:space-between; border-top:1px solid #cfcfcf; padding-top:16px; flex-wrap:wrap}
+.footer-bottom nav{display:flex; gap:32px}
+.footer-bottom a{color:inherit; text-decoration:none}
+.footer-bottom a:hover{text-decoration:underline; text-underline-offset:3px}
